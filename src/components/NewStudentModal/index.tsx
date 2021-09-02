@@ -30,6 +30,7 @@ export function NewStudentModal({
       className="react-modal-content"
       isOpen={isOpen}
       onRequestClose={onRequestClose}
+      ariaHideApp={false}
     >
       <button
         type="button"
