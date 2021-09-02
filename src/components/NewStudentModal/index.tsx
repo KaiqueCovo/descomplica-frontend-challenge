@@ -1,5 +1,7 @@
 import Modal from 'react-modal';
 import CloseIcon from 'assets/close.svg';
+import { useFormik } from 'formik';
+import { StudentValidationSchema } from 'validators/students';
 import { Container } from './styles';
 
 interface INewStudentModalProps {
@@ -11,6 +13,17 @@ export function NewStudentModal({
   isOpen,
   onRequestClose,
 }: INewStudentModalProps) {
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      cpf: '',
+      email: '',
+    },
+    validationSchema: StudentValidationSchema,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
   return (
     <Modal
       overlayClassName="react-modal-overlay"
@@ -25,14 +38,34 @@ export function NewStudentModal({
       >
         <img src={CloseIcon} alt="Fechar" />
       </button>
-      <Container>
+      <Container onSubmit={formik.handleSubmit}>
         <h2>Cadastrar aluno</h2>
 
-        <input placeholder="Nome" />
-        <input placeholder="CPF" />
-        <input placeholder="Email" />
+        <input
+          type="text"
+          placeholder="Nome"
+          name="name"
+          value={formik.values.name}
+          onChange={formik.handleChange}
+        />
+        <input
+          type="text"
+          placeholder="CPF"
+          name="cpf"
+          value={formik.values.cpf}
+          onChange={formik.handleChange}
+        />
+        <input
+          type="text"
+          placeholder="Email"
+          name="email"
+          value={formik.values.email}
+          onChange={formik.handleChange}
+        />
 
-        <button type="submit">Cadastrar</button>
+        <button type="submit" disabled={!formik.isValid}>
+          Cadastrar
+        </button>
       </Container>
     </Modal>
   );
