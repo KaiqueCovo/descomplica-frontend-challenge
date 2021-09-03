@@ -1,5 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import { IStudent } from 'interface/student';
+import { formatStringToCPF } from 'utils/formatStringToCPF';
 import { Container, Content } from './styles';
 
 const GET_STUDENTS = gql`
@@ -33,7 +34,7 @@ export function Table() {
             {data?.getStudents.map((student) => (
               <tr key={student.id}>
                 <td>{student.name}</td>
-                <td>{student.cpf}</td>
+                <td>{formatStringToCPF(student.cpf)}</td>
                 <td>{student.email}</td>
               </tr>
             ))}
