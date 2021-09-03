@@ -1,46 +1,80 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- Badges -->
 
-## Available Scripts
+![GitHub top language](https://img.shields.io/github/languages/top/kaiquecovo/descomplica-frontend-challenge?color=%2300E88F)
+![GitHub repo size](https://img.shields.io/github/repo-size/kaiquecovo/descomplica-frontend-challenge?color=%23212121)
+![GitHub made by](https://img.shields.io/badge/made%20by-KaiqueCovo-%2366ffbd)
 
-In the project directory, you can run:
+<!-- Menu -->
+<p align="center" >
+  <a href="#bookmark_tabs-about-the-project">:bookmark_tabs:&nbsp;&nbsp;About the project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-technologies">:rocket:&nbsp;&nbsp;Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#information_source-how-to-use">:information_source:&nbsp;&nbsp;How To Use</a>
+</p>
 
-### `yarn start`
+<!-- Mockup -->
+<div  align="center" style="padding: 50px;">
+  <img alt="Mockup" src="./.github/mockup.png" width="auto" heigth="auto"/>
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+</div>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<!-- About -->
 
-### `yarn test`
+## :bookmark_tabs: About the project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Web application for add students. This is challenge from Descomplica
 
-### `yarn build`
+<!-- Technologies -->
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## :rocket: Technologies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project was developed at challenge [Descomplica](https://descomplica.com.br) with the following technologies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [ReactJS](https://reactjs.org/)
+- [Styled Components](https://styled-components.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [GraphQL](https://graphql.org/)
+- [Apollo Client](https://www.apollographql.com/docs/react/)
+- [Docker](https://www.docker.com/)
+- [Formik](https://formik.org/)
+- [Yup](https://www.npmjs.com/package/yup)
+- [React Modal](https://github.com/reactjs/react-modal)
+- [React Input Mask](https://www.npmjs.com/package/react-input-mask)
+- [Prettier](https://prettier.io/)
+- [Eslint](https://eslint.org/)
 
-### `yarn eject`
+<!-- How to use -->
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## :information_source: How To Use
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v10.16](https://nodejs.org/en) or higher + [Yarn v1.13](https://yarnpkg.com) or higher installed on your computer. Run from your command line:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+# Clone this repository
+$ git clone git@github.com:KaiqueCovo/descomplica-frontend-challenge.git
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Go into the repository
+$ cd descomplica-frontend-challenge
 
-## Learn More
+# Copy .env.example to .env
+$ cp -rf .env.example .env
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Run the container (Immature)
+$ docker compose run
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Install dependencies
+$ yarn
+# or
+$ npm run install
+
+# Run the app
+$ yarn start
+# or
+$ npm run start
+```
+
+---
+
+Made with ♥ by [Kaique Covo](https://www.linkedin.com/in/kaique-covo-a46331147/) :wave:

@@ -23,7 +23,7 @@ export function NewStudentModal({
   isOpen,
   onRequestClose,
 }: INewStudentModalProps) {
-  const [createStudent, { data }] = useMutation(CREATE_STUDENT);
+  const [createStudent] = useMutation(CREATE_STUDENT);
 
   const formik = useFormik({
     initialValues: {
