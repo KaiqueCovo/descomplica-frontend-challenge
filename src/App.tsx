@@ -1,7 +1,9 @@
 import { useState, useCallback } from 'react';
+import { ApolloProvider } from '@apollo/react-hooks';
 import { Header } from 'components/Header';
 import { NewStudentModal } from 'components/NewStudentModal';
 import { Table } from 'components/Table';
+import { api } from 'services/api';
 import { GlobalStyle } from './styles/global';
 
 export function App() {
@@ -16,7 +18,7 @@ export function App() {
   }, []);
 
   return (
-    <>
+    <ApolloProvider client={api}>
       <Header onOpenNewStudentModal={handleOpenNewStudentModal} />
       <Table />
       <NewStudentModal
@@ -24,7 +26,7 @@ export function App() {
         onRequestClose={handleCloseNewStudentModal}
       />
       <GlobalStyle />
-    </>
+    </ApolloProvider>
   );
 }
 
