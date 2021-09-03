@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     --text-body: #111111;
     --text-title: #212121;
     --input-background: #e7e9ee;
+    --error: #A72521;
   }
 
   html {
