@@ -1,5 +1,6 @@
-import { gql, useQuery } from '@apollo/client';
+import { gql, useQuery, useSubscription } from '@apollo/client';
 import { IStudent } from 'interface/student';
+import { useEffect, useState } from 'react';
 import { formatStringToCPF } from 'utils/formatStringToCPF';
 import { Container, Content } from './styles';
 
@@ -14,8 +15,32 @@ const GET_STUDENTS = gql`
   }
 `;
 
+const STUDENTS_SUBSCRIPTION = gql`
+  subscription {
+    studentAdded {
+      id
+      name
+      email
+      cpf
+    }
+  }
+`;
+
 export function Table() {
-  const { loading, data } = useQuery<{ getStudents: IStudent[] }>(GET_STUDENTS);
+  const [students, setStudents] = useState<IStudent[]>([]);
+
+  const { loading, data: query } =
+    useQuery<{ getStudents: IStudent[] }>(GET_STUDENTS);
+  const { data: subscription } = useSubscription(STUDENTS_SUBSCRIPTION);
+
+  useEffect(() => {
+    if (query) setStudents(query.getStudents);
+  }, [query]);
+
+  useEffect(() => {
+    if (subscription)
+      setStudents((current) => [...current, subscription.studentAdded]);
+  }, [subscription]);
 
   if (loading) return <p>Loading ...</p>;
   return (
@@ -31,7 +56,7 @@ export function Table() {
           </thead>
 
           <tbody>
-            {data?.getStudents.map((student) => (
+            {students.map((student) => (
               <tr key={student.id}>
                 <td>{student.name}</td>
                 <td>{formatStringToCPF(student.cpf)}</td>
