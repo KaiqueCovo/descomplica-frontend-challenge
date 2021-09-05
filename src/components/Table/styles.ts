@@ -8,6 +8,8 @@ export const Container = styled.main`
 
 
 export const Content = styled.div`
+  overflow-x: auto;
+
   table {
     width: 100%;
 

@@ -5,14 +5,25 @@ export const Container = styled.header`
 `;
 
 export const Content = styled.div`
+
+    img {
+      @media (max-width: 720px) {
+        width: 35vw
+      }
+    }
+
     max-width: 1440px;
     margin: 0 auto;
 
     padding: 1.875rem 4rem;
 
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 720px) {
+      padding: 1.875rem 2rem;
+    }
 
     button {
       width: 8.125rem;
