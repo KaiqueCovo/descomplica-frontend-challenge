@@ -4,6 +4,8 @@ import { gql, useMutation } from '@apollo/client';
 import { useFormik } from 'formik';
 import { StudentValidationSchema } from 'validators/students';
 import { Input } from 'components/Input';
+import { useEffect } from 'react';
+import { notify } from 'utils/notify';
 import { Container } from './styles';
 
 interface INewStudentModalProps {
@@ -23,7 +25,14 @@ export function NewStudentModal({
   isOpen,
   onRequestClose,
 }: INewStudentModalProps) {
-  const [createStudent] = useMutation(CREATE_STUDENT);
+  const [createStudent, { data }] = useMutation(CREATE_STUDENT);
+
+  useEffect(() => {
+    if (data) {
+      notify({ type: 'success', message: 'Estudante cadastrado!' });
+      onRequestClose();
+    }
+  }, [data, onRequestClose]);
 
   const formik = useFormik({
     initialValues: {
@@ -36,8 +45,10 @@ export function NewStudentModal({
       createStudent({
         variables: { name, email, cpf: cpf.replace(/[^\d]/g, '') },
       });
+      formik.resetForm();
     },
   });
+
   return (
     <Modal
       overlayClassName="react-modal-overlay"

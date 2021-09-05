@@ -4,7 +4,10 @@ import { Header } from 'components/Header';
 import { NewStudentModal } from 'components/NewStudentModal';
 import { Table } from 'components/Table';
 import { api } from 'services/api';
+import { ToastContainer } from 'react-toastify';
 import { GlobalStyle } from './styles/global';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 export function App() {
   const [isNewStudentModalOpen, setIsNewStudentModalOpen] = useState(false);
@@ -26,6 +29,7 @@ export function App() {
         onRequestClose={handleCloseNewStudentModal}
       />
       <GlobalStyle />
+      <ToastContainer />
     </ApolloProvider>
   );
 }
