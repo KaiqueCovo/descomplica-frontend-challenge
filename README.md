@@ -61,18 +61,14 @@ $ cd descomplica-frontend-challenge
 # Copy .env.example to .env
 $ cp -rf .env.example .env
 
-# Run the container (Immature)
-$ docker compose run
-
 # Install dependencies
 $ yarn
 # or
 $ npm run install
 
-# Run the app
-$ yarn start
-# or
-$ npm run start
+
+# Run the container
+$ docker compose up
 ```
 
 ---

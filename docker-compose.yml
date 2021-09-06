@@ -4,9 +4,9 @@ services:
     container_name: descomplica-frontend
     build:
       context: .
-      dockerfile: Dockerfile
+      target: ${NODE_ENV}
     volumes:
       - '.:/app'
       - '/app/node_modules'
     ports:
-      - '3001:3000'
+      - 3000:3000

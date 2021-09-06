@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider } from '@apollo/client';
 import { Header } from 'components/Header';
 import { NewStudentModal } from 'components/NewStudentModal';
 import { Table } from 'components/Table';
